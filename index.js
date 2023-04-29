@@ -9,3 +9,11 @@ function operate(num1, operator, num2) {
   if (operator === "*") return multiply(num1, num2);
   if (operator === "/") return divide(num1, num2);
 }
+
+const display = document.querySelector(".calculator-display");
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    console.log(e.target.innerText);
+  });
+});
