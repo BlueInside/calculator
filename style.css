@@ -1,0 +1,13 @@
+* {
+  margin: 5px;
+}
+body {
+  text-align: center;
+  background-color: #1d1936;
+}
+.calculator-display {
+  height: 40px;
+  font-size: xx-large;
+  font-weight: 700;
+  color: #ff7e5f;
+}
