@@ -40,10 +40,10 @@ let firstNum;
 let secondNum;
 let operator;
 function calculate() {
+  if (!firstNum) return;
   secondNum = Number(display.innerText);
   let result = operate(firstNum, secondNum, operator);
   if (result % 1 != 0) result = result.toFixed(5);
-
   //so it doesn't allow spamming equal button
   firstNum = null;
   updateDisplay(result);
@@ -54,8 +54,3 @@ function clearDisplay() {
 function updateDisplay(line) {
   display.innerText = `${line}`;
 }
-//Issues
-//-- constantly pressing equal does the previous equation
-//-- create function that manipulate first last num and operator
-//---- it doesn't update number when press operator
-//---- few times only first num and operator
