@@ -3,10 +3,6 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
-let firstNum;
-let secondNum;
-let operator;
-
 function operate(num1, num2, operator) {
   if (operator === "+") return add(num1, num2);
   if (operator === "-") return subtract(num1, num2);
@@ -15,9 +11,17 @@ function operate(num1, num2, operator) {
 }
 
 const display = document.querySelector(".calculator-display");
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    console.log(e.target.innerText);
+
+const erase = document.querySelector("#clear");
+erase.addEventListener("click", () => (display.innerText = ""));
+
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+  number.addEventListener("click", (e) => {
+    display.innerText += e.target.innerText;
   });
 });
+
+let firstNum = Number(display.innerText);
+let secondNum;
+let operator;
