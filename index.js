@@ -7,6 +7,7 @@ function operate(num1, num2, operator) {
   if (operator === "+") return add(num1, num2);
   if (operator === "-") return subtract(num1, num2);
   if (operator === "*") return multiply(num1, num2);
+  if (!num1 || !num2) return updateDisplay("That's illegal");
   if (operator === "/") return divide(num1, num2);
 }
 
@@ -22,6 +23,9 @@ erase.addEventListener("click", () => {
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
+    //max numbers displayed 10;
+    if (display.innerText.length > 10) return;
+
     display.innerText += e.target.innerText;
   });
 });
@@ -44,7 +48,6 @@ function calculate() {
   secondNum = Number(display.innerText);
   let result = operate(firstNum, secondNum, operator);
   if (result % 1 != 0) result = result.toFixed(5);
-  //so it doesn't allow spamming equal button
   firstNum = null;
   updateDisplay(result);
 }
