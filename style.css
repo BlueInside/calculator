@@ -12,21 +12,24 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   background-size: cover;
 }
+.wrapper {
+  display: flex;
+  justify-content: center;
+  height: 30vw;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+}
 .calculator-display {
   height: 80px;
   font-size: xx-large;
   font-weight: 500;
   color: #ff7e5f;
 }
-/* 
-.button {
-  padding: 15px 25px;
-  font-size: 25px;
-  text-align: center;
-  background-color: inherit;
-} */
 
-/* CSS */
 .button {
   align-self: center;
   background-color: inherit;
