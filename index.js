@@ -13,7 +13,7 @@ function operate(num1, num2, operator) {
 const display = document.querySelector(".calculator-display");
 
 const erase = document.querySelector("#clear");
-erase.addEventListener("click", () => (display.innerText = ""));
+erase.addEventListener("click", clearDisplay);
 
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
@@ -21,7 +21,21 @@ numbers.forEach((number) => {
     display.innerText += e.target.innerText;
   });
 });
+const operators = document.querySelectorAll(".operator");
+operators.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    firstNum = Number(display.innerText);
+    operator = e.target.innerText;
+    clearDisplay();
+  });
+});
 
-let firstNum = Number(display.innerText);
+let firstNum;
 let secondNum;
 let operator;
+
+function clearDisplay() {
+  display.innerText = "";
+}
+//store first input when user presses and operator
+//save which operation been chosen and then operate when pressed =
