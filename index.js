@@ -11,7 +11,7 @@ function operate(num1, num2, operator) {
   if (operator === "/") return divide(num1, num2);
 }
 
-const display = document.querySelector(".calculator-display");
+const display = document.querySelector(".calculator-display p");
 
 const erase = document.querySelector("#clear");
 erase.addEventListener("click", () => {
@@ -29,6 +29,7 @@ numbers.forEach((number) => {
     display.innerText += e.target.innerText;
   });
 });
+
 const operators = document.querySelectorAll(".operator");
 operators.forEach((element) => {
   element.addEventListener("click", (e) => {
@@ -40,20 +41,38 @@ operators.forEach((element) => {
 
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", calculate);
+
 let firstNum;
 let secondNum;
 let operator;
+
 function calculate() {
   if (!firstNum) return;
   secondNum = Number(display.innerText);
   let result = operate(firstNum, secondNum, operator);
-  if (result % 1 != 0) result = result.toFixed(5);
+  if (result % 1 !== 0) result = result.toFixed(5);
   firstNum = null;
   updateDisplay(result);
 }
+
 function clearDisplay() {
   display.innerText = "";
 }
+
 function updateDisplay(line) {
   display.innerText = `${line}`;
 }
+
+// Add event listener for key presses
+document.addEventListener("keydown", (e) => {
+  const key = e.key;
+  if (!isNaN(key)) {
+    document.getElementById(key).click();
+  } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+    document.getElementById(key).click();
+  } else if (key === "Enter" || key === "=") {
+    document.getElementById("equal").click();
+  } else if (key === "Backspace" || key.toLowerCase() === "c") {
+    document.getElementById("clear").click();
+  }
+});
