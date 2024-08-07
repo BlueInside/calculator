@@ -32,9 +32,9 @@ The Basic Calculator is a simple web application that allows users to perform ba
 ## Setup and Usage
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/calculator.git
-   ```
+```bash
+git clone https://github.com/yourusername/calculator.git
+ ```
 2. **Navigate to the project directory:**
   ```bash
   cd calculator
@@ -46,15 +46,11 @@ The Basic Calculator is a simple web application that allows users to perform ba
 
 ## Project Structure
   ```bash
-    Copy code
-    calculator/
-    ├── css/
-    │   └── style.css       # Main stylesheet
-    ├── js/
-    │   └── index.js        # JavaScript file
+    calculator
+    │── style.css       # Main stylesheet
+    │── index.js        # JavaScript file
     ├── index.html          # Main HTML file
     └── README.md           # Project README file
-    Screenshots
   ```
 ## License
 This project is open source and available under the [MIT License](https://opensource.org/license/mit).
